@@ -1,3 +1,3 @@
 # Sandbox
 
-[live demo](https://mohsinkhanaptech.github.io/sandbox/)
+[live demo](https://donatedsalt.github.io/sandbox/)
