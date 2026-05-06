@@ -11,7 +11,7 @@ public class HungryState : IState
 
         critter.Energy += 2;
 
-        if (critter.Energy > 10)
+        if (critter.Energy >= critter.MaxEnergy - (critter.MaxEnergy / 4))
         {
             critter.TransitionTo(new IdleState());
         }

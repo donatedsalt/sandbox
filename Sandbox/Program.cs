@@ -12,29 +12,20 @@ services.AddKeyedScoped<IMovementStrategy, FlyStrategy>("fly");
 services.AddSingleton<WeatherSystem>();
 services.AddTransient<IEntityFactory, EntityFactory>();
 
+
+services.AddSingleton<World>(provider => new World(
+    entityFactory: provider.GetRequiredService<IEntityFactory>(),
+    weatherSystem: provider.GetRequiredService<WeatherSystem>(),
+    width: 10,
+    height: 10,
+    maxEntities: 25,
+    tickDelay: 500
+));
+
 var serviceProvider = services.BuildServiceProvider();
 
-var factory = serviceProvider.GetRequiredService<IEntityFactory>();
-var weatherSystem = serviceProvider.GetRequiredService<WeatherSystem>();
+var world = serviceProvider.GetRequiredService<World>();
 
-var critter = factory.CreateCritter("bunny");
-
-weatherSystem.Subscribe(critter);
-
-for (int i = 0; i < 10; i++)
-{
-    Console.WriteLine($"--- Turn {i + 1} ---");
-    if (i == 4)
-    {
-        Console.WriteLine("Its raining!");
-        weatherSystem.ChangeWeather("rain");
-    }
-    if (i == 8)
-    {
-        Console.WriteLine("It stopped raining!");
-        weatherSystem.ChangeWeather("sunny");
-    }
-
-    critter.Update();
-    Thread.Sleep(500);
-}
+world.Initialize();
+world.Run(10);
+Console.WriteLine("World simulation completed.");

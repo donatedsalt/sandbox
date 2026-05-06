@@ -4,7 +4,7 @@ namespace Sandbox.Systems;
 
 public class WeatherSystem
 {
-    private readonly List<IWeatherObserver> _observers = new();
+    private readonly List<IWeatherObserver> _observers = [];
 
     public void Subscribe(IWeatherObserver observer) => _observers.Add(observer);
 

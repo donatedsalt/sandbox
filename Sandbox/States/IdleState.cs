@@ -11,7 +11,7 @@ public class IdleState : IState
 
         Console.WriteLine($"{critter.Name} is chilling. Energy: {critter.Energy}");
 
-        if (critter.Energy <= 5)
+        if (critter.Energy <= critter.MaxEnergy / 2)
         {
             critter.TransitionTo(new HungryState());
         }

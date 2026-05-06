@@ -3,11 +3,16 @@ using Sandbox.States;
 
 namespace Sandbox.Entities;
 
-public class Critter : IWeatherObserver
+public class Critter : IWeatherObserver, IEntity
 {
+    public int X { get; set; }
+    public int Y { get; set; }
+
     public string Name { get; set; }
 
+    public int MaxHealth { get; set; }
     public int Health { get; set; }
+    public int MaxEnergy { get; set; }
     public int Energy { get; set; }
     public int Attack { get; set; }
     public int Defence { get; set; }
@@ -18,15 +23,31 @@ public class Critter : IWeatherObserver
 
     public IState CurrentState { get; private set; } = null!;
 
-    public Critter(string name, int health, int energy, int attack, int defence, int speed, int vision, IMovementStrategy movementStrategy)
+    public Critter(
+        int x,
+        int y,
+        string name,
+        int maxHealth,
+        int maxEnergy,
+        int attack,
+        int defence,
+        int speed,
+        int vision,
+        IMovementStrategy movementStrategy
+    )
     {
+        X = x;
+        Y = y;
         Name = name;
-        Health = health;
-        Energy = energy;
+        MaxHealth = maxHealth;
+        MaxEnergy = maxEnergy;
         Attack = attack;
         Defence = defence;
         Speed = speed;
         Vision = vision;
+
+        Health = Random.Shared.Next(maxHealth / 2, MaxHealth + 1);
+        Energy = Random.Shared.Next(maxEnergy / 2, MaxEnergy + 1);
 
         MovementStrategy = movementStrategy;
         TransitionTo(new IdleState());
@@ -47,7 +68,7 @@ public class Critter : IWeatherObserver
         if (weather == "rain")
         {
             Console.WriteLine($"{Name} is finding shelter from the rain...");
-            Energy -= 1;
+            MaxEnergy -= 1;
         }
     }
 }

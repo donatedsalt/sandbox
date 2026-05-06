@@ -10,9 +10,11 @@ public class CritterTests
     public void Critter_ShouldTransitionToHungryState_WhenEnergyIsBelowThreshold()
     {
         var critter = new Critter(
+            x: 0,
+            y: 0,
             name: "wolf",
-            health: 10,
-            energy: 10,
+            maxHealth: 10,
+            maxEnergy: 10,
             attack: 2,
             defence: 1,
             speed: 1,
