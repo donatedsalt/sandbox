@@ -106,6 +106,7 @@ public class EntityFactory : IEntityFactory
         var type = Random.Shared.Next(100);
         switch (type)
         {
+            // 40% grass, 20% bush, 20% tree, 15% rabbit, 10% wolf, 5% eagle
             case < 40:
                 return Create("grass", x, y);
             case < 60:
