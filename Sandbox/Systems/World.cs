@@ -66,9 +66,9 @@ public class World
         }
     }
 
-    public void Run(int Turns)
+    public void Run(int turns)
     {
-        for (int i = 0; i < Turns; i++)
+        for (int i = 0; i < turns; i++)
         {
             Tick();
             Thread.Sleep(TickDelay);
