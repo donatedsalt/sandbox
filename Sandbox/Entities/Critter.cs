@@ -8,6 +8,7 @@ public class Critter : IWeatherObserver, IEntity
     public int X { get; set; }
     public int Y { get; set; }
 
+    public char Symbol { get; set; }
     public string Name { get; set; }
 
     public int MaxHealth { get; set; }
@@ -26,6 +27,7 @@ public class Critter : IWeatherObserver, IEntity
     public Critter(
         int x,
         int y,
+        char symbol,
         string name,
         int maxHealth,
         int maxEnergy,
@@ -38,6 +40,7 @@ public class Critter : IWeatherObserver, IEntity
     {
         X = x;
         Y = y;
+        Symbol = symbol;
         Name = name;
         MaxHealth = maxHealth;
         MaxEnergy = maxEnergy;

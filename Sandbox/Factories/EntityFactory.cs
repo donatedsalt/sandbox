@@ -31,6 +31,7 @@ public class EntityFactory : IEntityFactory
                 return new Critter(
                     x: x,
                     y: y,
+                    symbol: 'B',
                     name: "bunny",
                     maxHealth: 10,
                     maxEnergy: 10,
@@ -44,6 +45,7 @@ public class EntityFactory : IEntityFactory
                 return new Critter(
                     x: x,
                     y: y,
+                    symbol: 'W',
                     name: "wolf",
                     maxHealth: 10,
                     maxEnergy: 10,
@@ -57,6 +59,7 @@ public class EntityFactory : IEntityFactory
                 return new Critter(
                     x: x,
                     y: y,
+                    symbol: 'E',
                     name: "eagle",
                     maxHealth: 10,
                     maxEnergy: 10,
@@ -70,6 +73,7 @@ public class EntityFactory : IEntityFactory
                 return new Plant(
                     x: x,
                     y: y,
+                    symbol: 'T',
                     name: "tree",
                     maxHealth: 10,
                     baseGrowthRate: 0.1
@@ -78,6 +82,7 @@ public class EntityFactory : IEntityFactory
                 return new Plant(
                     x: x,
                     y: y,
+                    symbol: 'B',
                     name: "bush",
                     maxHealth: 5,
                     baseGrowthRate: 0.2
@@ -86,6 +91,7 @@ public class EntityFactory : IEntityFactory
                 return new Plant(
                     x: x,
                     y: y,
+                    symbol: 'G',
                     name: "grass",
                     maxHealth: 1,
                     baseGrowthRate: 0.3

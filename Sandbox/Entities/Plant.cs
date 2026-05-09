@@ -7,6 +7,7 @@ public class Plant : IWeatherObserver, IEntity
     public int X { get; set; }
     public int Y { get; set; }
 
+    public char Symbol { get; set; }
     public string Name { get; set; }
 
     public int MaxHealth { get; set; }
@@ -16,10 +17,19 @@ public class Plant : IWeatherObserver, IEntity
     public double GrowthRate { get; set; }
 
 
-    public Plant(int x, int y, string name, int maxHealth, double baseGrowthRate, double age = 0)
+    public Plant(
+        int x,
+        int y,
+        char symbol,
+        string name,
+        int maxHealth,
+        double baseGrowthRate,
+        double age = 0
+    )
     {
         X = x;
         Y = y;
+        Symbol = symbol;
         Name = name;
         MaxHealth = maxHealth;
         Age = age;

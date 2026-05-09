@@ -27,5 +27,5 @@ var serviceProvider = services.BuildServiceProvider();
 var world = serviceProvider.GetRequiredService<World>();
 
 world.Initialize();
-world.Run(10);
+world.Run(turns: 10, print: true);
 Console.WriteLine("World simulation completed.");

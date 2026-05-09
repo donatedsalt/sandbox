@@ -66,12 +66,25 @@ public class World
         }
     }
 
-    public void Run(int turns)
+    public void Run(int turns, bool print = false)
     {
         for (int i = 0; i < turns; i++)
         {
             Tick();
+            if (print) Print();
             Thread.Sleep(TickDelay);
+        }
+    }
+
+    public void Print()
+    {
+        for (int y = 0; y < Height; y++)
+        {
+            for (int x = 0; x < Width; x++)
+            {
+                Console.Write(Cells[y, x].Entities.Count > 0 ? Cells[y, x].Entities[0].Symbol : ".");
+            }
+            Console.WriteLine();
         }
     }
 }

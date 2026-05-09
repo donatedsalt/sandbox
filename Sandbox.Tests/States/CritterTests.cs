@@ -12,6 +12,7 @@ public class CritterTests
         var critter = new Critter(
             x: 0,
             y: 0,
+            symbol: 'w',
             name: "wolf",
             maxHealth: 10,
             maxEnergy: 10,
