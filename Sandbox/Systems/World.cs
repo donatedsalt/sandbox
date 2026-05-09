@@ -83,7 +83,7 @@ public class World
         {
             for (int x = 0; x < Width; x++)
             {
-                Console.Write(Cells[y, x].Entities.Count > 0 ? Cells[y, x].Entities[0].Symbol : ".");
+                Console.Write(Cells[y, x].Entities.Count > 0 ? Cells[y, x].Entities[0].Symbol : "·");
             }
             Console.WriteLine();
         }
