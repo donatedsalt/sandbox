@@ -30,16 +30,16 @@ public class World
         Height = height;
         MaxEntities = maxEntities;
         TickDelay = tickDelay;
-        Cells = new Cell[width, height];
+        Cells = new Cell[height, width];
     }
 
     public void Initialize()
     {
-        for (int x = 0; x < Width; x++)
+        for (int y = 0; y < Height; y++)
         {
-            for (int y = 0; y < Height; y++)
+            for (int x = 0; x < Width; x++)
             {
-                Cells[x, y] = new Cell { };
+                Cells[y, x] = new Cell { };
             }
         }
 
@@ -48,17 +48,17 @@ public class World
             var entity = _entityFactory.CreateRandom(Random.Shared.Next(Width), Random.Shared.Next(Height));
             if (entity is IWeatherObserver observer)
                 _weatherSystem.Subscribe(observer);
-            Cells[entity.X, entity.Y].AddEntity(entity);
+            Cells[entity.Y, entity.X].AddEntity(entity);
         }
     }
 
     public void Tick()
     {
-        for (int x = 0; x < Width; x++)
+        for (int y = 0; y < Height; y++)
         {
-            for (int y = 0; y < Height; y++)
+            for (int x = 0; x < Width; x++)
             {
-                foreach (var entity in Cells[x, y].Entities)
+                foreach (var entity in Cells[y, x].Entities)
                 {
                     entity.Update();
                 }
