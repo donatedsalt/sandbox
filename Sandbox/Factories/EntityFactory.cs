@@ -114,7 +114,7 @@ public class EntityFactory : IEntityFactory
             case < 70:
                 return Create("tree", x, y);
             case < 85:
-                return Create("bunny", x, y);
+                return Create("rabbit", x, y);
             case < 95:
                 return Create("wolf", x, y);
             default:
