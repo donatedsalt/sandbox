@@ -12,13 +12,12 @@ services.AddKeyedScoped<IMovementStrategy, FlyStrategy>("fly");
 services.AddSingleton<WeatherSystem>();
 services.AddTransient<IEntityFactory, EntityFactory>();
 
-
 services.AddSingleton<World>(provider => new World(
     entityFactory: provider.GetRequiredService<IEntityFactory>(),
     weatherSystem: provider.GetRequiredService<WeatherSystem>(),
-    width: 10,
+    width: 20,
     height: 10,
-    maxEntities: 25,
+    maxEntities: 50,
     tickDelay: 500
 ));
 
