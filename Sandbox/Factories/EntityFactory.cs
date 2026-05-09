@@ -27,12 +27,12 @@ public class EntityFactory : IEntityFactory
     {
         switch (type)
         {
-            case "bunny":
+            case "rabbit":
                 return new Critter(
                     x: x,
                     y: y,
-                    symbol: 'B',
-                    name: "bunny",
+                    symbol: 'R',
+                    name: "rabbit",
                     maxHealth: 10,
                     maxEnergy: 10,
                     attack: 1,
