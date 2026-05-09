@@ -78,6 +78,7 @@ public class World
 
     public void Print()
     {
+        Console.WriteLine();
         for (int y = 0; y < Height; y++)
         {
             for (int x = 0; x < Width; x++)
@@ -86,5 +87,6 @@ public class World
             }
             Console.WriteLine();
         }
+        Console.WriteLine();
     }
 }
